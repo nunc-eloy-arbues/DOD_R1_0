@@ -1,0 +1,461 @@
+	div.pbSubsection {
+	    opacity: 0;
+	}
+	/*******************************************/
+	/**************** RESET ********************/
+	/*******************************************/
+	
+	html,
+	body,
+	div,
+	span,
+	applet,
+	object,
+	iframe,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	a,
+	abbr,
+	acronym,
+	address,
+	big,
+	cite,
+	code,
+	del,
+	dfn,
+	em,
+	font,
+	img,
+	ins,
+	kbd,
+	q,
+	s,
+	samp,
+	small,
+	strike,
+	strong,
+	sub,
+	tt,
+	var,
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li,
+	fieldset,
+	form,
+	label,
+	legend,
+	table,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td {
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    outline: 0;
+	    font-weight: inherit;
+	    font-style: inherit;
+	    font-size: 100%;
+	    font-family: inherit;
+	    vertical-align: baseline;
+	}
+	:focus {
+	    outline: 0;
+	}
+	/* no focus styles are set */
+	/*******************************************/
+	/************* NUNC LOGO *******************/
+	/*******************************************/
+	
+	body {
+	    line-height: 1;
+	    background: white;
+	    background-image: url(https://static.wixstatic.com/media/7f8d50_542401d10ea04cbe96ae26134ca1bddb~mv2.png/v1/fill/w_349,h_135,al_c,usm_0.66_1.00_0.01/7f8d50_542401d10ea04cbe96ae26134ca1bddb~mv2.png);
+	    background-size: 117px;
+	    background-repeat: no-repeat;
+	    background-position: 96% 101%;
+	}
+	/*******************************************/
+	/************* DIV *************************/
+	/*******************************************/
+	
+	div.FlowContainer {
+	    margin: auto;
+	    width: 95%;
+	    border: px solid black;
+	    padding: 0px 10px 0px 10px;
+	    color: #54698d;
+	    font-family: open sans, sans-serif;
+	}
+	div.pbBody {
+	    height: 685px;
+	}
+	div.pbSubsection {
+	    height: 90%;
+	}
+	div.pbBottomButtons {
+	    height: 40px;
+	    display: block;
+	    width: 100%;
+	}
+	/*************************/
+	/****** Loading GIF ******/
+	/*************************/
+	
+	div.waitingSearchDiv {
+	    position: absolute;
+	    top: 100px;
+	    right: 100px;
+	}
+	div.waitingSearchDiv {
+	    position: absolute;
+	    right: 30px;
+	    top: 4px;
+	}
+	/*************************/
+	/****** STATS BOX ********/
+	/*************************/
+	
+	div#statsBox {
+	    font-size: 70%;
+	    float: right;
+	    width: 100%;
+	    padding: 14px 1px 1px 1px;
+	    margin: 1px 1px 1px 1px;
+	}
+	div#statsBox ul {
+	    -webkit-margin-before: 0em;
+	    -webkit-margin-after: 0em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    -webkit-padding-start: 0px;
+	    padding: 2px;
+	    list-style-type: none;
+	    width: 100%;
+	    display: flex;
+	    box-sizing: border-box;
+	}
+	div#statsBox li {
+	    border: 1px solid #dbdbdb;
+	    border-collapse: separate;
+	    box-sizing: border-box;
+	    margin: 0px 1px 0px 1px;
+	    padding: 0px;
+	    width: 100%;
+	    background-color: #dbdbdb;
+	    color: #16325c;
+	    border-radius: 4px;
+	    text-align: center;
+	}
+	/*******************************************/
+	/************* DEFAULT STATES **************/
+	/*******************************************/
+	
+	.stepCompleted {
+	    background-color: green !important;
+	    color: white !important;
+	}
+	.requiredInput span {
+	    color: red !important;
+	    font-weight: bold;
+	}
+	/*******************************************/
+	/************* BUTTONS *********************/
+	/*******************************************/
+	
+	.pbBottomButtons table {
+	    width: 100%;
+	}
+	.FlowNextBtn,
+	.FlowPreviousBtn,
+	.FlowFinishBtn,
+	.PrintBtn,
+	.PreviewBtn,
+	.CancelBtn,
+	.TestBtn{
+	    background-color: #d01500;
+	    border: 0px;
+	    border-radius: 8px;
+	    color: white;
+	    padding: 10px 24px 10px 24px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 85%;
+	}
+	.FlowPreviousBtn {
+	    position: absolute;
+	    left: 10px;
+	}
+	.FlowNextBtn {
+	    position: absolute;
+	    right: 252px;
+	}
+	.FlowFinishBtn {
+	    position: absolute;
+	    right: 147px;
+	}
+	.PrintBtn {
+	    position: absolute;
+	    left: 125px;
+	    background-color: #55b40e;
+	}
+	
+	.TestBtn {
+	position: absolute;
+	left: 313px;
+	background-color: #55b40e;
+	}
+	
+	
+	.PreviewBtn {
+	    position: absolute;
+	    left: 240px;
+	    background-color: #55b40e;
+	}
+	.FlowFinishBtn {
+	    position: absolute;
+	    right: 147px;
+	}
+	.CancelBtn {
+	    position: absolute;
+	    right: 147px;
+	}
+	/*******************************************/
+	/************** TEXT FORMAT ****************/
+	/*******************************************/
+	/***** TITLES *****/
+	
+	[id*=DT1_],
+	[id*=DT2_],
+	[id*=DT3_] {
+	    color: #46566b;
+	    text-transform: uppercase;
+	}
+	[id*=DT1_] {
+	    margin: 0px 0px 0px 0px;
+	    font-size: 110%;
+	}
+	[id*=DT2_] {
+	    margin: 0px 0px 0px 20px;
+	    font-size: 100%;
+	    font-weight: bold;
+	}
+	/*-------------- LABEL COL -------------*/
+	/*DTT_, DTO_, FTB_, FTBL_1, CaF_, DLF_*/
+	
+	[id*=DTT_],
+	[id*=DTO_],
+	.labelCol [id*=FTB_],
+	label[id*=FTBL_1],
+	.labelCol [id*=CaF_],
+	label.FlowDropdown,
+	label.FlowText {
+	    font-size: 80%;
+	    margin: 0px 0px 0px 20px;
+	}
+	label.FlowDate,
+	label.FlowDropdown,
+	label.FlowText {
+	    display: block;
+	    height: 27px;
+	}
+	.dateFormat a {
+	    color: #209ad7;
+	    font-size: 100%;
+	    font-family: open sans, sans-serif;
+	}
+	/******* FTB_Item ******/
+	
+	tr.TR_FTB_Item td.empty {
+	    display: none;
+	}
+	tr.TR_FTB_Item td.labelCol {
+	    width: 10%;
+	}
+	/***** FTBL ****/
+	
+	tr.TR_FTBL_2 td.labelCol {
+	    /* This FTBL is without text */
+	    
+	    display: none;
+	}
+	tr.TR_FTBL_1 td.labelCol {
+	    vertical-align: top;
+	}
+	tr.TR_FTBL_2 td.empty,
+	tr.TR_FTBL_1 td.empty {
+	    display: none;
+	}
+	label[id*=FTBL_1] {
+	    width: 150px;
+	    text-align: left;
+	    vertical-align: top;
+	    display: inline-block;
+	    padding: 28px 10px 10px 0px;
+	    line-height: 20px;
+	}
+	textarea[id*=FTBL_] {
+	    width: 100%;
+	    font-family: open sans, sans-serif;
+	    padding: 8px 10px 8px 10px;
+	    resize: none;
+	    border: 1px solid #209ad7;
+	    border-radius: 4px;
+	    color: 16325c;
+	    margin: 0px 0px 0px 0px;
+	}
+	/* Fin FTBL_ */
+	/*-------------- DATA COL -------------*/
+	/*FTB_, CaF_, DLF_, CHB_ */
+	
+	td.dataCol [id*=FTB_],
+	td.dataCol [id*=CaF_],
+	td.dataCol [id*=DLF_],
+	td.dataCol [id*=CHB_] {
+	    display: inline-block;
+	    border: 1px solid #209ad7;
+	    padding: 3px 13px;
+	    border-radius: 4px;
+	    color: 16325c;
+	}
+	td.dataCol [id*=FTB_Item] {
+	    width: 100%;
+	}
+	/******* FTB_Item ******/
+	
+	tr.TR_FTB_Item td.dataCol {
+	    width: 100%;
+	}
+	/* To the textarea */
+	
+	tr.TR_FTBL_2 td.dataCol,
+	tr.TR_FTBL_1 td.dataCol {
+	    padding: 20px 0px 5px 0px !important;
+	    width: 100%;
+	}
+	/* Input BOXES effect */
+	
+	td.dataCol [id*=FTB_]:focus,
+	td.dataCol [id*=CaF_]:focus {
+	    background-color: #209ad7;
+	    color: white;
+	}
+	/**** DLF_ ****/
+	
+	td.dataCol [id*=DLF_] option {
+	    background-color: white;
+	    border: 1px solid #209ad7;
+	}
+	td.dataCol [id*=DLF_] option:hover {
+	    color: white;
+	    background-color: #209ad7;
+	    box-shadow: inset 20px 20px #00f;
+	}
+	/*******************************************/
+	/************** PRODUCT TABLE **************/
+	/*******************************************/
+	
+	table.tbl_Product {
+	    width: 100%;
+	    margin: 0px 0px 20px 0px;
+	    border-collapse: collapse;
+	}
+	/* CAPTION */
+	
+	table.tbl_Product caption {
+	    padding: 10px 0px 10px 0px;
+	    border: 1px solid #209ad7;
+	    font-weight: bold;
+	    color: #209ad7;
+	}
+	/* THEAD */
+	
+	table.tbl_Product thead th {
+	    background-color: #209ad7;
+	    color: white;
+	    padding: 10px;
+	    font-size: 80%;
+	    border: 1px solid #209ad7;
+	}
+	/*TFOOT*/
+	
+	table.tbl_Product tfoot td {
+	    background-color: #209ad7;
+	    color: white;
+	    padding: 10px;
+	    font-size: 80%;
+	    border: 1px solid #209ad7;
+	    text-align: center;
+	}
+	table.tbl_Product tfoot td.tbl_Payment {
+	    text-align: right;
+	    font-size: 85%;
+	}
+	table.tbl_Product tfoot td.tbl_PaymentRes {
+	    text-align: left;
+	    font-size: 85%;
+	}
+	table.tbl_Product tfoot td.tbl_Sumary {
+	    text-align: right;
+	    font-size: 85%;
+	}
+	table.tbl_Product tfoot td.tbl_Sumary:after {
+	    content: ":";
+	}
+	table.tbl_Product tfoot td.tbl_SumaryRes {
+	    text-align: left;
+	    font-size: 85%;
+	}
+	table.tbl_Product tfoot td.tbl_SumaryRes:after {
+	    content: "€";
+	}
+	/* TD PRODUCTS */
+	
+	table.tbl_Product tbody tr.ProductItemClass td {
+	    font-size: 80%;
+	    font-variant: small-caps;
+	    color: black;
+	    vertical-align: center;
+	    padding: 15px 0px 15px 10px;
+	    border: 1px solid #209ad7 !important;
+	}
+	/*V-Align*/
+	
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3),
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(4),
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(5),
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6) {
+	    text-align: center;
+	    font-size: 76%;
+	}
+	/*Quantity*/
+	
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3):after {
+	    content: " uds";
+	}
+	/*Unit Price and Total Price*/
+	
+	tr.ProductItemClass td:nth-of-type(4):after,
+	tr.ProductItemClass td:nth-of-type(5):after {
+	    content: "€";
+	}
+	/*Product Code*/
+	
+	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6) {
+	    padding-right: 20px;
+	    font-weight: bold;
+	}
