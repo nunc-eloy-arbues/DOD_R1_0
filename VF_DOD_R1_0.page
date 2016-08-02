@@ -1,0 +1,18 @@
+<apex:page standardController="Opportunity" sidebar="false" showHeader="false" standardStylesheets="false">
+    <flow:interview name="DOD_R1_0" buttonLocation="bottom" finishLocation="{!URLFOR('/apex/ForceClose')}">
+        <apex:param name="sV_OppID" value="{!Opportunity.id}"/>
+        <apex:param name="sV_BPSetupID" value="a1X3E0000004GQl" />
+        <apex:param name="sV_BPMD_Status" value="Draft" />
+    </flow:interview>
+    <apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+    <apex:includeScript value="{!$Resource.jquery3_0_0}"/>
+    <apex:includeScript value="{!URLFOR($Resource.NUNC_DODR1_0, '/js/proposal.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.NUNC_DODR1_0, '/css/proposal.css')}" />
+
+    <script type="text/javascript"> 
+        //When the document is ready...
+        $(document).ready(function() {
+            mainDODR('{!Opportunity.id}', '{!GETSESSIONID()}');
+        });
+    </script>
+</apex:page>
