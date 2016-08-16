@@ -1,461 +1,418 @@
-	div.pbSubsection {
-	    opacity: 0;
-	}
-	/*******************************************/
-	/**************** RESET ********************/
-	/*******************************************/
-	
-	html,
-	body,
-	div,
-	span,
-	applet,
-	object,
-	iframe,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	blockquote,
-	pre,
-	a,
-	abbr,
-	acronym,
-	address,
-	big,
-	cite,
-	code,
-	del,
-	dfn,
-	em,
-	font,
-	img,
-	ins,
-	kbd,
-	q,
-	s,
-	samp,
-	small,
-	strike,
-	strong,
-	sub,
-	tt,
-	var,
-	dl,
-	dt,
-	dd,
-	ol,
-	ul,
-	li,
-	fieldset,
-	form,
-	label,
-	legend,
-	table,
-	caption,
-	tbody,
-	tfoot,
-	thead,
-	tr,
-	th,
-	td {
-	    margin: 0;
-	    padding: 0;
-	    border: 0;
-	    outline: 0;
-	    font-weight: inherit;
-	    font-style: inherit;
-	    font-size: 100%;
-	    font-family: inherit;
-	    vertical-align: baseline;
-	}
-	:focus {
-	    outline: 0;
-	}
-	/* no focus styles are set */
-	/*******************************************/
-	/************* NUNC LOGO *******************/
-	/*******************************************/
-	
-	body {
-	    line-height: 1;
-	    background: white;
-	    background-image: url(https://static.wixstatic.com/media/7f8d50_542401d10ea04cbe96ae26134ca1bddb~mv2.png/v1/fill/w_349,h_135,al_c,usm_0.66_1.00_0.01/7f8d50_542401d10ea04cbe96ae26134ca1bddb~mv2.png);
-	    background-size: 117px;
-	    background-repeat: no-repeat;
-	    background-position: 96% 101%;
-	}
-	/*******************************************/
-	/************* DIV *************************/
-	/*******************************************/
-	
-	div.FlowContainer {
-	    margin: auto;
-	    width: 95%;
-	    border: px solid black;
-	    padding: 0px 10px 0px 10px;
-	    color: #54698d;
-	    font-family: open sans, sans-serif;
-	}
-	div.pbBody {
-	    height: 685px;
-	}
-	div.pbSubsection {
-	    height: 90%;
-	}
-	div.pbBottomButtons {
-	    height: 40px;
-	    display: block;
-	    width: 100%;
-	}
-	/*************************/
-	/****** Loading GIF ******/
-	/*************************/
-	
-	div.waitingSearchDiv {
-	    position: absolute;
-	    top: 100px;
-	    right: 100px;
-	}
-	div.waitingSearchDiv {
-	    position: absolute;
-	    right: 30px;
-	    top: 4px;
-	}
-	/*************************/
-	/****** STATS BOX ********/
-	/*************************/
-	
-	div#statsBox {
-	    font-size: 70%;
-	    float: right;
-	    width: 100%;
-	    padding: 14px 1px 1px 1px;
-	    margin: 1px 1px 1px 1px;
-	}
-	div#statsBox ul {
-	    -webkit-margin-before: 0em;
-	    -webkit-margin-after: 0em;
-	    -webkit-margin-start: 0px;
-	    -webkit-margin-end: 0px;
-	    -webkit-padding-start: 0px;
-	    padding: 2px;
-	    list-style-type: none;
-	    width: 100%;
-	    display: flex;
-	    box-sizing: border-box;
-	}
-	div#statsBox li {
-	    border: 1px solid #dbdbdb;
-	    border-collapse: separate;
-	    box-sizing: border-box;
-	    margin: 0px 1px 0px 1px;
-	    padding: 0px;
-	    width: 100%;
-	    background-color: #dbdbdb;
-	    color: #16325c;
-	    border-radius: 4px;
-	    text-align: center;
-	}
-	/*******************************************/
-	/************* DEFAULT STATES **************/
-	/*******************************************/
-	
-	.stepCompleted {
-	    background-color: green !important;
-	    color: white !important;
-	}
-	.requiredInput span {
-	    color: red !important;
-	    font-weight: bold;
-	}
-	/*******************************************/
-	/************* BUTTONS *********************/
-	/*******************************************/
-	
-	.pbBottomButtons table {
-	    width: 100%;
-	}
-	.FlowNextBtn,
-	.FlowPreviousBtn,
-	.FlowFinishBtn,
-	.PrintBtn,
-	.PreviewBtn,
-	.CancelBtn,
-	.TestBtn{
-	    background-color: #d01500;
-	    border: 0px;
-	    border-radius: 8px;
-	    color: white;
-	    padding: 10px 24px 10px 24px;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    font-size: 85%;
-	}
-	.FlowPreviousBtn {
-	    position: absolute;
-	    left: 10px;
-	}
-	.FlowNextBtn {
-	    position: absolute;
-	    right: 252px;
-	}
-	.FlowFinishBtn {
-	    position: absolute;
-	    right: 147px;
-	}
-	.PrintBtn {
-	    position: absolute;
-	    left: 125px;
-	    background-color: #55b40e;
-	}
-	
-	.TestBtn {
-	position: absolute;
-	left: 313px;
-	background-color: #55b40e;
-	}
-	
-	
-	.PreviewBtn {
-	    position: absolute;
-	    left: 240px;
-	    background-color: #55b40e;
-	}
-	.FlowFinishBtn {
-	    position: absolute;
-	    right: 147px;
-	}
-	.CancelBtn {
-	    position: absolute;
-	    right: 147px;
-	}
-	/*******************************************/
-	/************** TEXT FORMAT ****************/
-	/*******************************************/
-	/***** TITLES *****/
-	
-	[id*=DT1_],
-	[id*=DT2_],
-	[id*=DT3_] {
-	    color: #46566b;
-	    text-transform: uppercase;
-	}
-	[id*=DT1_] {
-	    margin: 0px 0px 0px 0px;
-	    font-size: 110%;
-	}
-	[id*=DT2_] {
-	    margin: 0px 0px 0px 20px;
-	    font-size: 100%;
-	    font-weight: bold;
-	}
-	/*-------------- LABEL COL -------------*/
-	/*DTT_, DTO_, FTB_, FTBL_1, CaF_, DLF_*/
-	
-	[id*=DTT_],
-	[id*=DTO_],
-	.labelCol [id*=FTB_],
-	label[id*=FTBL_1],
-	.labelCol [id*=CaF_],
-	label.FlowDropdown,
-	label.FlowText {
-	    font-size: 80%;
-	    margin: 0px 0px 0px 20px;
-	}
-	label.FlowDate,
-	label.FlowDropdown,
-	label.FlowText {
-	    display: block;
-	    height: 27px;
-	}
-	.dateFormat a {
-	    color: #209ad7;
-	    font-size: 100%;
-	    font-family: open sans, sans-serif;
-	}
-	/******* FTB_Item ******/
-	
-	tr.TR_FTB_Item td.empty {
-	    display: none;
-	}
-	tr.TR_FTB_Item td.labelCol {
-	    width: 10%;
-	}
-	/***** FTBL ****/
-	
-	tr.TR_FTBL_2 td.labelCol {
-	    /* This FTBL is without text */
-	    
-	    display: none;
-	}
-	tr.TR_FTBL_1 td.labelCol {
-	    vertical-align: top;
-	}
-	tr.TR_FTBL_2 td.empty,
-	tr.TR_FTBL_1 td.empty {
-	    display: none;
-	}
-	label[id*=FTBL_1] {
-	    width: 150px;
-	    text-align: left;
-	    vertical-align: top;
-	    display: inline-block;
-	    padding: 28px 10px 10px 0px;
-	    line-height: 20px;
-	}
-	textarea[id*=FTBL_] {
-	    width: 100%;
-	    font-family: open sans, sans-serif;
-	    padding: 8px 10px 8px 10px;
-	    resize: none;
-	    border: 1px solid #209ad7;
-	    border-radius: 4px;
-	    color: 16325c;
-	    margin: 0px 0px 0px 0px;
-	}
-	/* Fin FTBL_ */
-	/*-------------- DATA COL -------------*/
-	/*FTB_, CaF_, DLF_, CHB_ */
-	
-	td.dataCol [id*=FTB_],
-	td.dataCol [id*=CaF_],
-	td.dataCol [id*=DLF_],
-	td.dataCol [id*=CHB_] {
-	    display: inline-block;
-	    border: 1px solid #209ad7;
-	    padding: 3px 13px;
-	    border-radius: 4px;
-	    color: 16325c;
-	}
-	td.dataCol [id*=FTB_Item] {
-	    width: 100%;
-	}
-	/******* FTB_Item ******/
-	
-	tr.TR_FTB_Item td.dataCol {
-	    width: 100%;
-	}
-	/* To the textarea */
-	
-	tr.TR_FTBL_2 td.dataCol,
-	tr.TR_FTBL_1 td.dataCol {
-	    padding: 20px 0px 5px 0px !important;
-	    width: 100%;
-	}
-	/* Input BOXES effect */
-	
-	td.dataCol [id*=FTB_]:focus,
-	td.dataCol [id*=CaF_]:focus {
-	    background-color: #209ad7;
-	    color: white;
-	}
-	/**** DLF_ ****/
-	
-	td.dataCol [id*=DLF_] option {
-	    background-color: white;
-	    border: 1px solid #209ad7;
-	}
-	td.dataCol [id*=DLF_] option:hover {
-	    color: white;
-	    background-color: #209ad7;
-	    box-shadow: inset 20px 20px #00f;
-	}
-	/*******************************************/
-	/************** PRODUCT TABLE **************/
-	/*******************************************/
-	
-	table.tbl_Product {
-	    width: 100%;
-	    margin: 0px 0px 20px 0px;
-	    border-collapse: collapse;
-	}
-	/* CAPTION */
-	
-	table.tbl_Product caption {
-	    padding: 10px 0px 10px 0px;
-	    border: 1px solid #209ad7;
-	    font-weight: bold;
-	    color: #209ad7;
-	}
-	/* THEAD */
-	
-	table.tbl_Product thead th {
-	    background-color: #209ad7;
-	    color: white;
-	    padding: 10px;
-	    font-size: 80%;
-	    border: 1px solid #209ad7;
-	}
-	/*TFOOT*/
-	
-	table.tbl_Product tfoot td {
-	    background-color: #209ad7;
-	    color: white;
-	    padding: 10px;
-	    font-size: 80%;
-	    border: 1px solid #209ad7;
-	    text-align: center;
-	}
-	table.tbl_Product tfoot td.tbl_Payment {
-	    text-align: right;
-	    font-size: 85%;
-	}
-	table.tbl_Product tfoot td.tbl_PaymentRes {
-	    text-align: left;
-	    font-size: 85%;
-	}
-	table.tbl_Product tfoot td.tbl_Sumary {
-	    text-align: right;
-	    font-size: 85%;
-	}
-	table.tbl_Product tfoot td.tbl_Sumary:after {
-	    content: ":";
-	}
-	table.tbl_Product tfoot td.tbl_SumaryRes {
-	    text-align: left;
-	    font-size: 85%;
-	}
-	table.tbl_Product tfoot td.tbl_SumaryRes:after {
-	    content: "€";
-	}
-	/* TD PRODUCTS */
-	
-	table.tbl_Product tbody tr.ProductItemClass td {
-	    font-size: 80%;
-	    font-variant: small-caps;
-	    color: black;
-	    vertical-align: center;
-	    padding: 15px 0px 15px 10px;
-	    border: 1px solid #209ad7 !important;
-	}
-	/*V-Align*/
-	
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3),
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(4),
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(5),
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6) {
-	    text-align: center;
-	    font-size: 76%;
-	}
-	/*Quantity*/
-	
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3):after {
-	    content: " uds";
-	}
-	/*Unit Price and Total Price*/
-	
-	tr.ProductItemClass td:nth-of-type(4):after,
-	tr.ProductItemClass td:nth-of-type(5):after {
-	    content: "€";
-	}
-	/*Product Code*/
-	
-	table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6) {
-	    padding-right: 20px;
-	    font-weight: bold;
-	}
+div.pbSubsection
+{
+  opacity:0;
+  height:90%;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+{
+  border:0;
+  outline:0;
+  font-weight:inherit;
+  font-style:inherit;
+  font-size:100px %;
+  font-family:inherit;
+  vertical-align:baseline;
+  margin:0;
+  padding:0;
+}
+
+: focus
+{
+  outline:0;
+}
+
+body
+{
+  line-height:1;
+  background:#FFF;
+  background-image:url(../img/nunc-logo.png);
+  background-size:117 px;
+  background-repeat:no 0 repeat;
+  background-position:96px % 101px %;
+}
+
+div.FlowContainer
+{
+  width:95px %;
+  border:px solid #000;
+  color:#54698d;
+  font-family:open sans, sans-serif;
+  margin:auto;
+  padding:0;
+}
+
+div.pbBody
+{
+  height:685px;
+}
+
+div.pbBottomButtons
+{
+  height:40px;
+  display:block;
+  width:100%;
+}
+
+div.waitingSearchDiv
+{
+  position:absolute;
+  right:30px;
+  top:4px;
+}
+
+div# statsBox
+{
+  font-size:70px %;
+  float:right;
+  width:100px %;
+  margin:1px;
+  padding:14px;
+}
+
+div# statsBox ul
+{
+  -webkit-margin-before:0 m;
+  -webkit-margin-after:0 m;
+  -webkit-margin-start:0 px;
+  -webkit-margin-end:0 px;
+  -webkit-padding-start:0 px;
+  list-style-type:none;
+  width:100px %;
+  display:flex;
+  box-sizing:border 0 box;
+  padding:2px px;
+}
+
+div# statsBox li
+{
+  border:1px px solid# dbdbdb;
+  border-collapse:separate;
+  box-sizing:border 0 box;
+  width:100px %;
+  background-color:#dbdbdb;
+  color:#16325c;
+  border-radius:4px;
+  text-align:center;
+  margin:0;
+  padding:0 px;
+}
+
+.stepCompleted
+{
+  background-color:green!important;
+  color:#FFF!important;
+}
+
+.requiredInput span
+{
+  color:red!important;
+  font-weight:700;
+}
+
+.pbBottomButtons table
+{
+  width:100%;
+}
+
+.FlowNextBtn,.FlowPreviousBtn,.FlowFinishBtn,.PrintBtn,.PreviewBtn,.CancelBtn,.TestBtn,.ClosePOPUPBtn
+{
+  background-color:# d01500;
+  border:0 px;
+  border-radius:8 px;
+  color:#FFF;
+  text-align:center;
+  text-decoration:none;
+  display:inline 0 block;
+  font-size:85px %;
+  padding:10px;
+}
+
+.FlowPreviousBtn
+{
+  position:absolute;
+  left:10px px;
+}
+
+.FlowNextBtn
+{
+  position:absolute;
+  right:252px px;
+}
+
+.PrintBtn
+{
+  position:absolute;
+  left:12px px;
+  background-color:#55b40e;
+}
+
+.TestBtn
+{
+  position:absolute;
+  left:313px;
+  background-color:# 0 b40e;
+}
+
+.PreviewBtn
+{
+  position:absolute;
+  left:240px px;
+  background-color:#55b40e;
+}
+
+.ClosePOPUPBtn
+{
+  position:absolute;
+  right:0;
+  bottom:0;
+  margin:0 20px 20px 0;
+}
+
+[id*= DT1_],[id *= DT2_],[id *= DT3_]
+{
+  color:#46566b;
+  text-transform:uppercase;
+}
+
+[id*= DT1_]
+{
+  font-size:110px %;
+  margin:0;
+}
+
+[id *= DT2_]
+{
+  font-size:100px %;
+  font-weight:700;
+  margin:0;
+}
+
+[id *= DTT_],[id *= DTO_],.labelCol[id *= FTB_],label[id *= FTBL_1],.labelCol[id *= CaF_],label.FlowDropdown,label.FlowText
+{
+  font-size:80px %;
+  margin:0;
+}
+
+label.FlowDate,label.FlowDropdown,label.FlowText
+{
+  display:block;
+  height:27px px;
+}
+
+.dateFormat a
+{
+  color:#209ad7;
+  font-size:100%;
+  font-family:open sans, sans-serif;
+}
+
+tr.TR_FTB_Item td.labelCol
+{
+  width:10%;
+}
+
+tr.TR_FTBL_1 td.labelCol
+{
+  vertical-align:top;
+}
+
+label[id*= FTBL_1]
+{
+  width:150px px;
+  text-align:left;
+  vertical-align:top;
+  display:inline 0 block;
+  line-height:20 px;
+  padding:28px;
+}
+
+textarea[id *= FTBL_]
+{
+  width:100px %;
+  font-family:open sans, sans 0 serif;
+  resize:none;
+  border:1px px solid #209ad7;
+  border-radius:4px;
+  color:0;
+  margin:0;
+  padding:8px;
+}
+
+td.dataCol [id*= FTB_],td.dataCol[id *= CaF_],td.dataCol[id *= DLF_],td.dataCol[id *= CHB_]
+{
+  display:inline 0 block;
+  border:1px px solid #209ad7;
+  border-radius:4px;
+  color:0;
+  padding:3px 13px;
+}
+
+tr.TR_FTBL_2 td.dataCol,tr.TR_FTBL_1 td.dataCol
+{
+  width:100px %;
+  padding:20px!important;
+}
+
+td.dataCol[id *= FTB_]: focus,td.dataCol[id *= CaF_]: focus
+{
+  background-color:#209ad7;
+  color:#FFF;
+}
+
+td.dataCol [id*= DLF_] option
+{
+  background-color:#FFF;
+  border:1px px solid #209ad7;
+}
+
+td.dataCol [id*= DLF_] option: hover
+{
+  color:#FFF;
+  background-color:#209ad7;
+  box-shadow:inset 20px 20px # 00 f;
+}
+
+table.tbl_Product
+{
+  width:100px %;
+  border-collapse:collapse;
+  margin:0;
+}
+
+table.tbl_Product caption
+{
+  border:1px px solid #209ad7;
+  font-weight:700;
+  color:# 0 ad7;
+  padding:10px;
+}
+
+table.tbl_Product thead th
+{
+  background-color:#209ad7;
+  color:#FFF;
+  font-size:80%;
+  border:1px solid # 209px ad7;
+  padding:10px;
+}
+
+table.tbl_Product tfoot td
+{
+  background-color:#209ad7;
+  color:#FFF;
+  font-size:80%;
+  border:1px solid # 209px ad7;
+  text-align:center;
+  padding:10px;
+}
+
+table.tbl_Product tfoot td.tbl_Sumary: after
+{
+  content:":";
+}
+
+table.tbl_Product tbody tr.ProductItemClass td
+{
+  font-size:80px %;
+  font-variant:small 0 caps;
+  color:#000;
+  vertical-align:center;
+  border:1px px solid #209ad7!important;
+  padding:15px;
+}
+
+table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3),table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(4),table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(5),table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6)
+{
+  text-align:center;
+  font-size:76%;
+}
+
+table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(3):after
+{
+  content:" uds";
+}
+
+table.tbl_Product tbody tr.ProductItemClass td:nth-of-type(6)
+{
+  padding-right:20px;
+  font-weight:700;
+}
+
+.messagePop
+{
+  background-color:# ffffff;
+  border:2px px solid #209ad7;
+  cursor:default;
+  display:none;
+  text-align:left;
+  width:400px;
+  height:100px;
+  z-index:50;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 50px 1px # 999999;
+  padding:25px 25px 20px 20px;
+}
+
+.messagePop p
+{
+  display:block;
+  height:40px px;
+  font-size:20px px;
+  margin:0 px!important;
+  padding:5px;
+}
+
+.PopupCheck
+{
+  background:#FFF;
+  background-image:url(../img/check-green.png);
+  background-size:50 px;
+  background-repeat:no 0 repeat;
+  background-position:1px % 0 %;
+}
+
+.PopupError
+{
+  background:#FFF;
+  background-image:url(../img/error.png);
+  background-size:50 px;
+  background-repeat:no 0 repeat;
+  background-position:1px % 0 %;
+}
+
+.FlowFinishBtn,.CancelBtn
+{
+  position:absolute;
+  right:147px;
+}
+
+tr.TR_FTB_Item td.empty,tr.TR_FTBL_2 td.labelCol,tr.TR_FTBL_2 td.empty,tr.TR_FTBL_1 td.empty
+{
+  display:none;
+}
+
+td.dataCol [id*= FTB_Item],tr.TR_FTB_Item td.dataCol
+{
+  width:100px %;
+}
+
+table.tbl_Product tfoot td.tbl_Payment,table.tbl_Product tfoot td.tbl_Sumary
+{
+  text-align:right;
+  font-size:85px %;
+}
+
+table.tbl_Product tfoot td.tbl_PaymentRes,table.tbl_Product tfoot td.tbl_SumaryRes
+{
+  text-align:left;
+  font-size:85px %;
+}
+
+table.tbl_Product tfoot td.tbl_SumaryRes: after,tr.ProductItemClass td:nth-of-type(4):after,tr.ProductItemClass td:nth-of-type(5):after
+{
+  content:"€";
+}
