@@ -183,7 +183,7 @@ function showMessage($msg) {
 
 function showMessage($msg, $n) {
     var $classList = ['PopupCheck', 'PopupError'];
-
+	
     if ($n <= $classList.lenght || $n >= 0) {
         $("div.pbBody").append('<div class="messagePop"><p id="DTO_PopupMsg">' + $msg + '</p><input class="ClosePOPUPBtn" type="button" onClick="closeWindow();" value="CLOSE"></div>');
         $(".messagePop").css("display", "block");
