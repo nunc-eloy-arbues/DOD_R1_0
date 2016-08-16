@@ -14,16 +14,19 @@ public class DOD_R1_0_FEEDER {
         List<DOD_Type__c> DOD_Type_TBL = FEED_Dod_Type(DOD_Type_NamesList);
         String ProposalID = GetDOD_TypeID('Proposal');
         String InvoiceID = GetDOD_TypeID('Invoice');
+        String ConfirmationID = GetDOD_TypeID('Confirmation');
+        String ProMethodID = GetDOD_TypeID('Project Method Description');
+        String ContractID = GetDOD_TypeID('Contract');
 
         //DOD Field_Assignment
         List<DOD_Field_Assignment__c> DOD_Field_Assignment_List = new List<DOD_Field_Assignment__c>{            
             new DOD_Field_Assignment__c(
-                Name='Anrede', 
+                Name='Angebotsnummer', 
                 DOD_Field_Data_Type__c='TEXT', 
                 DOD_Type__c=ProposalID
-            ),   
+            ), 
             new DOD_Field_Assignment__c(
-                Name='Angebotsnummer', 
+                Name='Anrede', 
                 DOD_Field_Data_Type__c='TEXT', 
                 DOD_Type__c=ProposalID
             ), 
@@ -33,27 +36,27 @@ public class DOD_R1_0_FEEDER {
                 DOD_Type__c=ProposalID
             ), 
             new DOD_Field_Assignment__c(
-                Name='Attachement NUNC Dokumenten Service Vereinbarung', 
+                Name='Attachement NUNC Document Blueprint Programmierung', 
                 DOD_Field_Data_Type__c='CHECKBOX', 
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
-                Name='Attachement NUNC ESCRIBA Service Vereinbarung', 
+                Name='Attachement NUNC Hosting Services', 
                 DOD_Field_Data_Type__c='CHECKBOX', 
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
-                Name='Attachement NUNC Hosting Vereinbarung', 
+                Name='Attachement NUNC SCRUM Projektmethodenbeschreibung', 
                 DOD_Field_Data_Type__c='CHECKBOX', 
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
-                Name='Attachement NUNC Lizenzvereinbarung', 
+                Name='Attachement NUNC Software Services Lizenzvereinbarung', 
                 DOD_Field_Data_Type__c='CHECKBOX', 
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
-                Name='Attachement NUNC Projektmethode', 
+                Name='Attachement NUNC Support Services SLA', 
                 DOD_Field_Data_Type__c='CHECKBOX', 
                 DOD_Type__c=ProposalID
             ),
@@ -73,17 +76,17 @@ public class DOD_R1_0_FEEDER {
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
+                Name='Bemerkung NUNC Hosting Services', 
+                DOD_Field_Data_Type__c='TEXT', 
+                DOD_Type__c=ProposalID
+            ),
+            new DOD_Field_Assignment__c(
                 Name='Bemerkung NUNC IT Services', 
                 DOD_Field_Data_Type__c='TEXT', 
                 DOD_Type__c=ProposalID
             ),
             new DOD_Field_Assignment__c(
                 Name='Bemerkung NUNC Software Services', 
-                DOD_Field_Data_Type__c='TEXT', 
-                DOD_Type__c=ProposalID
-            ),
-            new DOD_Field_Assignment__c(
-                Name='Bemerkung NUNC Hosting Services', 
                 DOD_Field_Data_Type__c='TEXT', 
                 DOD_Type__c=ProposalID
             ),
@@ -144,7 +147,7 @@ public class DOD_R1_0_FEEDER {
             ),
             new DOD_Field_Assignment__c(
                 Name='Projektmethode', 
-                DOD_Field_Data_Type__c='Picklist', 
+                DOD_Field_Data_Type__c='PICKLIST', 
                 DOD_Type__c=ProposalID
             ),   
             new DOD_Field_Assignment__c(
@@ -174,7 +177,7 @@ public class DOD_R1_0_FEEDER {
             ),  
             new DOD_Field_Assignment__c(
                 Name='Zahlungsziel', 
-                DOD_Field_Data_Type__c='Picklist', 
+                DOD_Field_Data_Type__c='PICKLIST', 
                 DOD_Type__c=ProposalID
             )
         };
@@ -199,37 +202,43 @@ public class DOD_R1_0_FEEDER {
         List<DOD_User_Dialog_Field__c> DOD_User_Dialog_Field_List = new List<DOD_User_Dialog_Field__c>{
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Angebotsnummer'),
+                Fixed__c=false,
+                Value__c=''
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
                 DOD_Field__c=GetDOD_Field_AssignmentID('Anrede'),
                 Fixed__c=false,
                 Value__c=''
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Dokumenten Service Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Document Blueprint Programmierung'),
                 Fixed__c=false,
                 Value__c='Auswahl Attachement zur NUNC Angebotsvorlage; der ESCRIBA Designer benötigt ein Feld'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC ESCRIBA Service Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Hosting Services'),
                 Fixed__c=false,
                 Value__c='Auswahl Attachement zur NUNC Angebotsvorlage; der ESCRIBA Designer benötigt ein Feld'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Hosting Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC SCRUM Projektmethodenbeschreibung'),
                 Fixed__c=false,
                 Value__c='Auswahl Attachement zur NUNC Angebotsvorlage; der ESCRIBA Designer benötigt ein Feld'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Lizenzvereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Software Services Lizenzvereinbarung'),
                 Fixed__c=false,
                 Value__c='Auswahl Attachement zur NUNC Angebotsvorlage; der ESCRIBA Designer benötigt ein Feld'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Projektmethode'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Support Services SLA'),
                 Fixed__c=false,
                 Value__c='Auswahl Attachement zur NUNC Angebotsvorlage; der ESCRIBA Designer benötigt ein Feld'
             ),
@@ -244,6 +253,36 @@ public class DOD_R1_0_FEEDER {
                 DOD_Field__c=GetDOD_Field_AssignmentID('Begrüßungstext'),
                 Fixed__c=false,
                 Value__c='Eingabe Standard Text...'
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Consulting Services'),
+                Fixed__c=false,
+                Value__c=''
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Hosting Services'),
+                Fixed__c=false,
+                Value__c=''
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC IT Services'),
+                Fixed__c=false,
+                Value__c=''
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Software Services'),
+                Fixed__c=false,
+                Value__c=''
+            ),
+            new DOD_User_Dialog_Field__c(
+                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Support Services'),
+                Fixed__c=false,
+                Value__c=''
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
@@ -277,45 +316,15 @@ public class DOD_R1_0_FEEDER {
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Consulting Services'),
-                Fixed__c=false,
-                Value__c=''
-            ),
-            new DOD_User_Dialog_Field__c(
-                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC IT Services'),
-                Fixed__c=false,
-                Value__c=''
-            ),
-            new DOD_User_Dialog_Field__c(
-                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Software Services'),
-                Fixed__c=false,
-                Value__c=''
-            ),
-            new DOD_User_Dialog_Field__c(
-                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Hosting Services'),
-                Fixed__c=false,
-                Value__c=''
-            ),
-            new DOD_User_Dialog_Field__c(
-                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
-                DOD_Field__c=GetDOD_Field_AssignmentID('Bemerkung NUNC Support Services'),
-                Fixed__c=false,
-                Value__c=''
-            ),
-            new DOD_User_Dialog_Field__c(
-                Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
                 DOD_Field__c=GetDOD_Field_AssignmentID('Projektmethode'),
                 Fixed__c=false,
-                Value__c=''
+                Value__c='Scrum;Waterfall'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
                 DOD_Field__c=GetDOD_Field_AssignmentID('Zahlungsziel'),
                 Fixed__c=false,
-                Value__c=''
+                Value__c='Sofort;30;60;90;120;200'
             )
         };
         FEED_DOD_User_Dialog_Field(DOD_User_Dialog_Field_List);
@@ -323,12 +332,12 @@ public class DOD_R1_0_FEEDER {
         //Blue_Print_DOD_Field_Position
         List<Blue_Print_DOD_Field_Position__c> Blue_Print_DOD_Field_Position_List = new List<Blue_Print_DOD_Field_Position__c>{
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Aufgabenstellung'),
-                Position__c=2
-            ),
-            new Blue_Print_DOD_Field_Position__c(
                 DOD_Field__c=GetDOD_Field_AssignmentID('Begrüßungstext'),
                 Position__c=1
+            ),
+            new Blue_Print_DOD_Field_Position__c(
+                DOD_Field__c=GetDOD_Field_AssignmentID('Aufgabenstellung'),
+                Position__c=2
             ),
             new Blue_Print_DOD_Field_Position__c(
                 DOD_Field__c=GetDOD_Field_AssignmentID('Leistungsbeschreibung1'),
@@ -395,23 +404,23 @@ public class DOD_R1_0_FEEDER {
                 Position__c=18
             ),
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Projektmethode'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC SCRUM Projektmethodenbeschreibung'),
                 Position__c=19
             ),
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Dokumenten Service Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Document Blueprint Programmierung'),
                 Position__c=20
             ),
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC ESCRIBA Service Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Support Services SLA'),
                 Position__c=21
             ),
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Hosting Vereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Hosting Services'),
                 Position__c=22
             ),
             new Blue_Print_DOD_Field_Position__c(
-                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Lizenzvereinbarung'),
+                DOD_Field__c=GetDOD_Field_AssignmentID('Attachement NUNC Software Services Lizenzvereinbarung'),
                 Position__c=23
             ),
             new Blue_Print_DOD_Field_Position__c(
