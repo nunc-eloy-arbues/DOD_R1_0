@@ -318,7 +318,7 @@ public class DOD_R1_0_FEEDER {
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
                 DOD_Field__c=GetDOD_Field_AssignmentID('Projektmethode'),
                 Fixed__c=false,
-                Value__c='Scrum;Waterfall'
+                Value__c='Scrum'
             ),
             new DOD_User_Dialog_Field__c(
                 Blue_Print_Name__c=GetDOD_Blue_Print_SetupID('NUNC Angebotsvorlage'),
