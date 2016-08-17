@@ -1,7 +1,7 @@
 $urlP = 'http://www.escriba.de/xml/dod_escriba_result_right.xml';
 $urlF = 'http://www.escriba.de/xml/dod_escriba_result_wrong.xml';
 $escUrl = 'http://clarkkent:escriba@192.168.200.172:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004VneQAE&j.pdfParentId=0063E000001tAINQA2&j.fileName=0063E000001tAINQA2.pdf&c.instanceId=00D3E0000000OR8UAM';
-$urlAWS = 'http://clarkkent:escriba@ec2-52-59-51-10.eu-central-1.compute.amazonaws.com:9080/esi-webgen/api/proposal/compose-async?d.di_proposal.objectId=a1a3E0000004XZYQA2&j.pdfParentId=0063E000002BK9BQAW&j.fileName=Test_NUNC_PROPOSAL_E-level.pdf&c.instanceId=00D3E0000000OR8UAM';
+$urlAWS = 'http://clarkkent:escriba@ec2-52-59-51-10.eu-central-1.compute.amazonaws.com:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004XZYQA2&j.pdfParentId=0063E000002BK9BQAW&j.fileName=Test_NUNC_PROPOSAL_E-level.pdf&c.instanceId=00D3E0000000OR8UAM';
 
 function mainDODR($OpportunityID, $sfSession) {
     $__SFsessionID = $sfSession;
@@ -93,12 +93,8 @@ function mainDODR($OpportunityID, $sfSession) {
         var $ESCinstance = "c.instanceId=00D3E0000000OR8UAM";
         var $ESCcall = $ESCserver + $ESCobj + $ESCparent + $ESCfname + $ESCinstance;
 
-        /*Print and Preview buttons*/
-
+        /*Generate Document button*/
         $('<input id="print" type="button" name="btnPrint" value="Generate Document" style="visibility: visible;" class="PrintBtn" onClick="EscribaCallT(\'' + $BPMDID + '\',\'' + $OpportunityID + '\');">').appendTo($("[class*=Btn]").parent("td"));
-        // $('<input id="print" type="button" name="btnTEST" value="TEST" style="visibility: visible;" class="TestBtn" onClick="EscribaCallT(\'' + $BPMDID + '\',\'' + $OpportunityID + '\');">').appendTo($("[class*=Btn]").parent("td"));
-
-        //$('<input id="preview" type="button" name="btnPreview" value="Preview" style="visibility: visible;" class="PreviewBtn" onClick="window.open(\''+$ESCcall+'\',\'NUNC_Windows\',\'width=600,height=300\')">').appendTo( $("[class*=Btn]").parent("td"));
 
         /*Rename standar button*/
         $('.FlowFinishBtn').val("Close Window");
@@ -107,42 +103,30 @@ function mainDODR($OpportunityID, $sfSession) {
     }
 }
 
-function EscribaCall(BpmdId, $OppId) {
-    var DocumentName;
+/*function EscribaCall(BpmdId, $OppId) {
+var DocumentName;
 
-    try {
-        //sforce.connection.sessionId = "{!GETSESSIONID()}"; 
-        DocumentName = getOffertName(BpmdId);
+try {
+//sforce.connection.sessionId = "{!GETSESSIONID()}"; 
+DocumentName = getOffertName(BpmdId);
 
-        window.open("http://clarkkent:escriba@192.168.200.172:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=" + BpmdId + "&j.pdfParentId=" + $OppId + "&j.fileName=" + DocumentName + ".pdf&c.instanceId=00D3E0000000OR8UAM", '_parent', 'width=600, height=300');
+window.open("http://clarkkent:escriba@192.168.200.172:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=" + BpmdId + "&j.pdfParentId=" + $OppId + "&j.fileName=" + DocumentName + ".pdf&c.instanceId=00D3E0000000OR8UAM", '_parent', 'width=600, height=300');
 
-    } catch (e) {
-        alert('ERROR on EscribaCall(). ' +
-            'Blue Print Meta Data: ' + BpmdId +
-            '\n ERROR: ' + e);
-    }
+} catch (e) {
+alert('ERROR on EscribaCall(). ' +
+	'Blue Print Meta Data: ' + BpmdId +
+	'\n ERROR: ' + e);
 }
-
-function getOffertName(bpdata) {
-    try {
-        sforce.connection.sessionId = $__SFsessionID;
-        var res = sforce.connection.query('SELECT Id, Value__c, Name, Blue_Print_Meta_Data_ID__c, Position__c FROM Blue_Print_Meta_Data_Value__c WHERE Blue_Print_Meta_Data_ID__c = \'' + bpdata + '\' AND Position__c = 26 LIMIT 1');
-        return res.getArray("records")[0].Value__c;
-    } catch (e) {
-        alert('Error in "getOffertName()" getting Offert Name. ' +
-            '\n Blue Print Meta Data ID: ' + bpdata +
-            'ERROR: ' + e);
-        return "errorname";
-    }
-}
+}*/
 
 function EscribaCallT($BpmdId, $OppId) {
     try {
         sforce.connection.sessionId = $__SFsessionID;
+        //We take the name of the Offer to create the document
         var $DocumentName = getOffertName($BpmdId);
 
         sforce.connection.remoteFunction({
-            url: $urlAWS,
+            url: $urlAWS, //We send the request with all parameters to this URL
             requestHeaders: {
                 "Content-Type": "text/xml"
             },
@@ -155,7 +139,7 @@ function EscribaCallT($BpmdId, $OppId) {
                 CallSuccess($.parseXML($response), $OppId);
             },
             onFailure: function($response) {
-                alert("EscribaCallT - FAIL: " + $response.textContent);
+                CallError($response);
             },
         });
     } catch (e) {
@@ -163,6 +147,7 @@ function EscribaCallT($BpmdId, $OppId) {
     }
 }
 
+//We execute this function if ESCRIBA connection went good. Then we search the status to know if ESCRIBA has created a Document successfully.
 function CallSuccess($data, $OppId) {
     var $ESCsuccess = ['NEWLY_CREATED', 'OUTPUT'];
     var $tagStatus = 'job-status';
@@ -176,14 +161,44 @@ function CallSuccess($data, $OppId) {
     }
 }
 
+//If the ESCRIBA connection went wrong...
+function CallError($data) {
+	showMessage("Oops! Connection with ESCRIBA was not possible: "+$data.textContent, 1);
+    $(".PrintBtn").remove();
+}
+
+//Function to return the Offert name from Salesforce.
+function getOffertName(bpdata) {
+    try {
+        sforce.connection.sessionId = $__SFsessionID;
+        var res = sforce.connection.query('SELECT Id, Value__c, Name, Blue_Print_Meta_Data_ID__c, Position__c FROM Blue_Print_Meta_Data_Value__c WHERE Blue_Print_Meta_Data_ID__c = \'' + bpdata + '\' AND Position__c = 26 LIMIT 1');
+        return res.getArray("records")[0].Value__c;
+    } catch (e) {
+        alert('Error in "getOffertName()" getting Offert Name. ' +
+            '\n Blue Print Meta Data ID: ' + bpdata +
+            'ERROR: ' + e);
+        return "errorname";
+    }
+}
+
+//Function to show the last Document within the Opportunity on a new windows.
+function getLastDocument($OppId) {
+    var ResQ = sforce.connection.query("SELECT Id FROM Attachment WHERE Parent.Id='" + $OppId + "' ORDER BY CreatedDate DESC NULLS LAST LIMIT 1");
+    var DocId = ResQ.getArray("records")[0].Id;
+
+    window.open("https://" + window.location.hostname + "/servlet/servlet.FileDownload?file=" + DocId, '_blank', '');
+}
+
+//Just open a POPUP with a text message.
 function showMessage($msg) {
     $("div.pbBody").append('<div class="messagePop"><p id="DTO_PopupMsg">' + $msg + '</p><input class="ClosePOPUPBtn" type="button" onClick="closeWindow();" value="CLOSE"></div>');
     $(".messagePop").css("display", "block");
 }
 
+//Another one function to show a text message but accepts a number to show a icon on the POPUP. 0=Check, 1=Error.
 function showMessage($msg, $n) {
     var $classList = ['PopupCheck', 'PopupError'];
-	
+
     if ($n <= $classList.lenght || $n >= 0) {
         $("div.pbBody").append('<div class="messagePop"><p id="DTO_PopupMsg">' + $msg + '</p><input class="ClosePOPUPBtn" type="button" onClick="closeWindow();" value="CLOSE"></div>');
         $(".messagePop").css("display", "block");
@@ -193,15 +208,7 @@ function showMessage($msg, $n) {
     }
 }
 
-
-function getLastDocument($OppId) {
-    var ResQ = sforce.connection.query("SELECT Id FROM Attachment WHERE Parent.Id='" + $OppId + "' ORDER BY CreatedDate DESC NULLS LAST LIMIT 1");
-    var DocId = ResQ.getArray("records")[0].Id;
-
-    window.open("https://" + window.location.hostname + "/servlet/servlet.FileDownload?file=" + DocId, '_parent', '');
-}
-
-
+//Just for close the Dialog
 function closeWindow() {
     window.open('', '_parent', '');
     window.close();
