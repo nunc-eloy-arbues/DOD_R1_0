@@ -1,8 +1,3 @@
-$urlP = 'http://www.escriba.de/xml/dod_escriba_result_right.xml';
-$urlF = 'http://www.escriba.de/xml/dod_escriba_result_wrong.xml';
-$escUrl = 'http://clarkkent:escriba@192.168.200.172:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004VneQAE&j.pdfParentId=0063E000001tAINQA2&j.fileName=0063E000001tAINQA2.pdf&c.instanceId=00D3E0000000OR8UAM';
-$urlAWS = 'http://clarkkent:escriba@ec2-52-59-51-10.eu-central-1.compute.amazonaws.com:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004XZYQA2&j.pdfParentId=0063E000002BK9BQAW&j.fileName=Test_NUNC_PROPOSAL_E-level.pdf&c.instanceId=00D3E0000000OR8UAM';
-
 function mainDODR($OpportunityID, $sfSession) {
     $__SFsessionID = $sfSession;
     /*Title SCREENS. It's will used to know what screen we are*/
@@ -120,13 +115,19 @@ alert('ERROR on EscribaCall(). ' +
 }*/
 
 function EscribaCallT($BpmdId, $OppId) {
-    try {
+/*	$urlP = 'http://www.escriba.de/xml/dod_escriba_result_right.xml';
+	$urlF = 'http://www.escriba.de/xml/dod_escriba_result_wrong.xml';
+	$escUrl = 'http://clarkkent:escriba@192.168.200.172:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004VneQAE&j.pdfParentId=0063E000001tAINQA2&j.fileName=0063E000001tAINQA2.pdf&c.instanceId=00D3E0000000OR8UAM';
+	$urlAWS = 'http://clarkkent:escriba@ec2-52-59-51-10.eu-central-1.compute.amazonaws.com:9080/esi-webgen/api/proposal/compose-sync?d.di_proposal.objectId=a1a3E0000004XZYQA2&j.pdfParentId=0063E000002BK9BQAW&j.fileName=Test_NUNC_PROPOSAL_E-level.pdf&c.instanceId=00D3E0000000OR8UAM';*/
+	
+	var $DocumentName = getOffertName($BpmdId);
+	var $urlFinal = "http://clarkkent:escriba@ec2-52-59-51-10.eu-central-1.compute.amazonaws.com:9080/esi-webgen/api/proposal/compose-async?d.di_proposal.objectId=" + $BpmdId + "&j.pdfParentId=" + $OppId + "&j.fileName=Test_NUNC_PROPOSAL_E-level_" + $DocumentName + ".pdf&c.instanceId=00D3E0000000OR8UAM";
+    
+	try {
         sforce.connection.sessionId = $__SFsessionID;
         //We take the name of the Offer to create the document
-        var $DocumentName = getOffertName($BpmdId);
-
-        sforce.connection.remoteFunction({
-            url: $urlAWS, //We send the request with all parameters to this URL
+            sforce.connection.remoteFunction({
+            url: $urlFinal, //We send the request with all parameters to this URL
             requestHeaders: {
                 "Content-Type": "text/xml"
             },
